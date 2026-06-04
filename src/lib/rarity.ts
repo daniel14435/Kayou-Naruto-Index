@@ -4,12 +4,12 @@ import { RARITY_ORDER } from "@/data/types";
 export type RarityTier = 1 | 2 | 3 | 4 | 5;
 
 export const RARITY_TIER: Record<string, RarityTier> = {
-  R: 1, SR: 1,
+  C: 1, UNKNOWN: 1, R: 1, SR: 1,
   SSR: 2, UR: 2, OR: 2,
-  AR: 3, SP: 3, ASP: 3, MR: 3,
+  AR: 3, SP: 3, ASP: 3, MR: 3, BR: 3,
   GP: 4, CR: 4, ZR: 4, CP: 4, NR: 4, TR: 4, TGR: 4, HR: 4, BP: 4,
-  SLR: 4, "SLR+": 4, "SLR-": 4, BR: 4,
-  SE: 5, SCR: 5, LR: 5, XR: 5, XP: 5, QR: 5, PR: 5, PTR: 5, PU: 5, "20th": 5,
+  SLR: 4, "SLR+": 4, "SLR-": 4,
+  SE: 5, SCR: 5, LR: 5, XR: 5, XP: 5, QR: 5, PR: 5, PTR: 5, PU: 5, PUR: 5, "20th": 5,
   "SS-SSR": 2, "SS-UR": 2, "SS-OR": 2,
   "SS-AR": 3, "SS-SP": 3,
   "SS-HR": 4,
@@ -93,6 +93,7 @@ const explicitClass: Partial<Record<Rarity, string>> = {
   SE:  "bg-sky-500/12 text-sky-200 border-sky-500/40",
   CP:  "bg-fuchsia-500/12 text-fuchsia-200 border-fuchsia-500/40",
   PU:  "bg-violet-500/12 text-violet-200 border-violet-500/40",
+  PUR: "bg-violet-500/12 text-violet-200 border-violet-500/40",
   R:   "bg-sky-500/10   text-sky-300    border-sky-500/40",
   NR:  "bg-orange-500/10 text-orange-200 border-orange-500/35",
   C:   "bg-zinc-500/10  text-zinc-300   border-zinc-500/30",
@@ -148,6 +149,7 @@ const explicitFrame: Partial<Record<Rarity, string>> = {
   SE:  "ring-1 ring-sky-500/45",
   CP:  "ring-1 ring-fuchsia-500/45",
   PU:  "ring-1 ring-violet-500/45",
+  PUR: "ring-1 ring-violet-500/45",
   R:   "ring-1 ring-sky-500/30",
   NR:  "ring-1 ring-orange-500/35 shadow-[0_4px_22px_-12px_oklch(0.72_0.18_45_/_0.45)]",
   C:   "ring-1 ring-zinc-500/20",

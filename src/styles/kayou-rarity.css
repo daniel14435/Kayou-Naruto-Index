@@ -295,6 +295,7 @@ mask:
 .rarity-PR  { --frame-1: oklch(0.88 0.14 350); --frame-2: oklch(0.5 0.18 355);  --frame-glow: oklch(0.78 0.22 352 / 0.9);  --accent-ring: oklch(0.82 0.24 352 / 0.42); }
 .rarity-PTR { --frame-1: oklch(0.94 0.05 95);  --frame-2: oklch(0.55 0.08 80);  --frame-glow: oklch(0.86 0.1 90 / 0.9);    --accent-ring: oklch(0.92 0.1 90 / 0.5); --foil-opacity: 0.82; }
 .rarity-PU  { --frame-1: oklch(0.86 0.18 290); --frame-2: oklch(0.46 0.22 300); --frame-glow: oklch(0.72 0.26 295 / 0.92); --accent-ring: oklch(0.78 0.28 295 / 0.44); }
+.rarity-PUR { --frame-1: oklch(0.86 0.18 290); --frame-2: oklch(0.46 0.22 300); --frame-glow: oklch(0.72 0.26 295 / 0.92); --accent-ring: oklch(0.78 0.28 295 / 0.44); }
 
 /* ---------- Keyframes ---------- */
 @keyframes kayou-holo-shift {

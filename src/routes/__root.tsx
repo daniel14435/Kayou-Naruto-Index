@@ -10,6 +10,7 @@ import {
 
 import appCss from "../styles.css?url";
 import kayouCss from "../styles/kayou-rarity.css?url";
+import heroBg from "@/assets/packs/hero-naruto.jpg";
 import { I18nProvider } from "@/lib/i18n";
 import { ThemeProvider } from "@/lib/theme";
 import { Footer, Header } from "@/components/site/header";
@@ -103,12 +104,26 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         <I18nProvider>
-          <div className="min-h-screen flex flex-col bg-paper">
+          <div className="relative isolate min-h-screen flex flex-col overflow-hidden bg-paper">
+            <div className="pointer-events-none fixed inset-0 z-0">
+              <img
+                src={heroBg}
+                alt=""
+                width={1920}
+                height={1080}
+                className="h-full w-full object-cover opacity-[0.16] saturate-[0.85] dark:opacity-[0.46] dark:saturate-[0.95]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-background/42 via-background/64 to-background/88 dark:from-background/24 dark:via-background/52 dark:to-background/86" />
+              <div className="absolute inset-0 bg-gradient-to-r from-background/82 via-background/44 to-background/20 dark:from-background/78 dark:via-background/38 dark:to-background/12" />
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,oklch(1_0_0/0.04)_1px,transparent_1px),linear-gradient(to_bottom,oklch(1_0_0/0.03)_1px,transparent_1px)] bg-[size:88px_88px] opacity-[0.10] dark:opacity-[0.18]" />
+            </div>
             <Header />
-            <main className="flex-1">
+            <main className="relative z-10 flex-1">
               <Outlet />
             </main>
-            <Footer />
+            <div className="relative z-10">
+              <Footer />
+            </div>
           </div>
         </I18nProvider>
       </ThemeProvider>

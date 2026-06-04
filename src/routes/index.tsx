@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Archive, ArrowRight, CreditCard, Database, Package, ShieldCheck } from "lucide-react";
-import heroImg from "@/assets/packs/hero-naruto.jpg";
 import { cards, packs, series, packsByCard } from "@/data";
 import type { Card, Pack } from "@/data";
 import { rarityClass, rarityFrame, rarityCssClass, resolveTier, sortByRarityDesc } from "@/lib/rarity";
@@ -80,15 +79,8 @@ function HomePage() {
     <div>
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-border/80">
-        <img
-          src={heroImg}
-          alt=""
-          width={1920}
-          height={1080}
-          className="absolute inset-0 h-full w-full object-cover opacity-45 saturate-[0.9]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/78 to-background" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/82 to-background/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/68 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/76 to-background/48" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,oklch(1_0_0/0.045)_1px,transparent_1px),linear-gradient(to_bottom,oklch(1_0_0/0.035)_1px,transparent_1px)] bg-[size:88px_88px] opacity-20" />
 
