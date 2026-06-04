@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, CreditCard, Package } from "lucide-react";
+import { Archive, ArrowRight, CreditCard, Database, Package, ShieldCheck } from "lucide-react";
 import heroImg from "@/assets/packs/hero-naruto.jpg";
 import { cards, packs, series, packsByCard } from "@/data";
 import type { Card, Pack } from "@/data";
@@ -65,7 +65,7 @@ function homepageChasePriority(card: Card): number {
 }
 
 function HomePage() {
-  const { t, loc } = useI18n();
+  const { loc } = useI18n();
 
   const featuredBoxes = pickFeaturedBoxes();
 
@@ -79,48 +79,74 @@ function HomePage() {
   return (
     <div>
       {/* HERO */}
-      <section className="relative overflow-hidden border-b border-border">
+      <section className="relative overflow-hidden border-b border-border/80">
         <img
           src={heroImg}
           alt=""
           width={1920}
           height={1080}
-          className="absolute inset-0 h-full w-full object-cover opacity-35"
+          className="absolute inset-0 h-full w-full object-cover opacity-45 saturate-[0.9]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,oklch(0.6_0.24_28/0.08),transparent_70%)]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/78 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/82 to-background/50" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,oklch(1_0_0/0.045)_1px,transparent_1px),linear-gradient(to_bottom,oklch(1_0_0/0.035)_1px,transparent_1px)] bg-[size:88px_88px] opacity-20" />
 
-        <div className="relative mx-auto max-w-5xl px-4 sm:px-6 py-14 sm:py-18 lg:py-20">
-          <div className="flex min-h-[380px] flex-col justify-center">
-            <div className="mx-auto max-w-3xl text-center">
-              <span className="inline-flex items-center rounded-full border border-primary/40 bg-primary/10 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-primary">
-                Independent collector database
+        <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:py-16">
+          <div className="grid min-h-[430px] items-center gap-8 lg:grid-cols-[minmax(0,1fr)_360px]">
+            <div className="max-w-3xl">
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/35 bg-background/55 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-primary shadow-[inset_0_1px_0_oklch(1_0_0/0.08)] backdrop-blur-md">
+                <ShieldCheck className="h-3.5 w-3.5" /> Independent collector-built database
               </span>
-              <h1 className="mt-5 text-4xl font-display font-bold tracking-tight leading-[1.08] sm:text-5xl lg:text-6xl">
+              <h1 className="mt-5 font-display text-5xl font-bold leading-[0.98] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
                 ShinobIndex
               </h1>
-              <h2 className="mt-3 text-base sm:text-lg text-foreground/75 font-medium tracking-tight">
-                Naruto Kayou Card Database
+              <h2 className="mt-4 text-lg font-semibold tracking-tight text-foreground/88 sm:text-xl">
+                Naruto Kayou card database
               </h2>
-              <p className="mx-auto mt-5 max-w-xl text-sm sm:text-base text-foreground/80 leading-relaxed">
-                Search cards, explore sealed products, and browse collector checklists in one place.
+              <p className="mt-5 max-w-2xl text-sm leading-7 text-foreground/76 sm:text-base">
+                Browse sealed products, card checklists, rarity data, and community-sourced records in a collector-focused archive.
               </p>
-              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-3">
-                <Link to="/series" className="btn-primary min-h-[52px] px-6 text-[15px] font-medium flex items-center gap-2.5">
-                  Explore Series <ArrowRight className="h-5 w-5" />
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <Link
+                  to="/series"
+                  className="group inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-full border border-primary/30 bg-primary px-6 text-[15px] font-bold text-primary-foreground shadow-[0_14px_34px_-18px_oklch(0.6_0.24_28/0.85),inset_0_1px_0_oklch(1_0_0/0.2)] transition hover:-translate-y-0.5 hover:brightness-105"
+                >
+                  Explore Series <ArrowRight className="h-5 w-5 transition group-hover:translate-x-0.5" />
                 </Link>
-                <Link to="/search/packs" className="btn-ghost min-h-[52px] px-6 text-[15px] font-medium flex items-center gap-2.5">
+                <Link
+                  to="/search/packs"
+                  className="inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-full border border-border/80 bg-background/55 px-6 text-[15px] font-semibold text-foreground shadow-[inset_0_1px_0_oklch(1_0_0/0.06)] backdrop-blur-md transition hover:-translate-y-0.5 hover:border-primary/55 hover:bg-card/75"
+                >
                   <Package className="h-5 w-5 text-primary" /> Search Packs
                 </Link>
-                <Link to="/search/cards" className="btn-ghost min-h-[52px] px-6 text-[15px] font-medium flex items-center gap-2.5">
+                <Link
+                  to="/search/cards"
+                  className="inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-full border border-border/80 bg-background/55 px-6 text-[15px] font-semibold text-foreground shadow-[inset_0_1px_0_oklch(1_0_0/0.06)] backdrop-blur-md transition hover:-translate-y-0.5 hover:border-primary/55 hover:bg-card/75"
+                >
                   <CreditCard className="h-5 w-5 text-primary" /> Search Cards
                 </Link>
               </div>
-              <div className="mx-auto mt-8 grid max-w-2xl grid-cols-3 gap-3 sm:gap-4">
-                <HeroStat value={series.length} label="Series & families" />
-                <HeroStat value={packs.length} label="Products indexed" />
-                <HeroStat value={cards.length} label="Cards loaded" />
+              <div className="mt-8 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">
+                <HeroStat icon={Archive} value={series.length} label="Product families" detail="Series and release lines" />
+                <HeroStat icon={Package} value={packs.length} label="Products indexed" detail="Sealed boxes and variants" />
+                <HeroStat icon={Database} value={cards.length} label="Cards loaded" detail="Checklist records" />
+              </div>
+            </div>
+
+            <div className="relative hidden lg:block">
+              <div className="absolute -inset-4 rounded-[2rem] bg-primary/8 blur-2xl" />
+              <div className="relative overflow-hidden rounded-xl border border-border/80 bg-background/64 shadow-[0_24px_70px_-40px_rgba(0,0,0,0.75),inset_0_1px_0_oklch(1_0_0/0.08)] backdrop-blur-xl">
+                <div className="border-b border-border/70 px-5 py-4">
+                  <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Archive snapshot</p>
+                  <p className="mt-2 text-sm text-foreground/72">Community records organized for sealed product research.</p>
+                </div>
+                <div className="divide-y divide-border/60">
+                  <ArchiveRow label="Featured products" value={`${featuredBoxes.length} shown`} />
+                  <ArchiveRow label="Source posture" value="Community sourced" />
+                  <ArchiveRow label="Browse modes" value="Series · Packs · Cards" />
+                  <ArchiveRow label="Homepage focus" value="Chase cards and boxes" />
+                </div>
               </div>
             </div>
           </div>
@@ -274,11 +300,38 @@ function PopularBoxCard({
   );
 }
 
-function HeroStat({ value, label }: { value: number | string; label: string }) {
+function ArchiveRow({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-lg border border-primary/20 bg-gradient-to-br from-card/50 to-card/30 backdrop-blur-sm px-4 py-4 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
-      <p className="font-display text-xl font-bold text-foreground leading-none">{value}</p>
-      <p className="mt-2 text-[11px] uppercase tracking-[0.12em] text-muted-foreground font-medium">{label}</p>
+    <div className="flex items-center justify-between gap-4 px-5 py-4">
+      <span className="text-xs font-medium text-muted-foreground">{label}</span>
+      <span className="text-right font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-foreground/86">{value}</span>
+    </div>
+  );
+}
+
+function HeroStat({
+  icon: Icon,
+  value,
+  label,
+  detail,
+}: {
+  icon: typeof Archive;
+  value: number | string;
+  label: string;
+  detail: string;
+}) {
+  return (
+    <div className="group rounded-lg border border-border/75 bg-background/58 px-4 py-4 shadow-[inset_0_1px_0_oklch(1_0_0/0.07)] backdrop-blur-md transition hover:border-primary/45 hover:bg-card/70">
+      <div className="flex items-start gap-3">
+        <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-primary/25 bg-primary/10 text-primary">
+          <Icon className="h-4.5 w-4.5" />
+        </span>
+        <span className="min-w-0">
+          <span className="block font-display text-2xl font-bold leading-none text-foreground">{value}</span>
+          <span className="mt-2 block text-[11px] font-bold uppercase tracking-[0.12em] text-foreground/78">{label}</span>
+          <span className="mt-1 block text-xs leading-5 text-muted-foreground">{detail}</span>
+        </span>
+      </div>
     </div>
   );
 }
