@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-05-30T14:16:03.587Z",
+  "totalCards": 1583,
+  "totalSkipped": 0,
+  "sources": [
+    {
+      "source": "CollectorVerse",
+      "attempts": 1,
+      "successful": true,
+      "cardsFound": 1583,
+      "errors": []
+    },
+    {
+      "source": "Narutopia.fr",
+      "attempts": 1,
+      "successful": false,
+      "cardsFound": 0,
+      "errors": []
+    },
+    {
+      "source": "Capsule Corp Gear",
+      "attempts": 1,
+      "successful": false,
+      "cardsFound": 0,
+      "errors": [],
+      "note": "Reference source only - we already have sourced data from this source"
+    }
+  ],
+  "summary": {
+    "successful": 1,
+    "failed": 2
+  }
+}

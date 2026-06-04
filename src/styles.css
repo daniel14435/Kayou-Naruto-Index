@@ -1,0 +1,235 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * ShinobIndex — design system
+ * Pitch black + ninja orange-red. Smooth rounded buttons, premium collector feel.
+ */
+
+@theme inline {
+  --font-display: "Cinzel", "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+  --radius-2xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-rarity-c: var(--rarity-c);
+  --color-rarity-r: var(--rarity-r);
+  --color-rarity-sr: var(--rarity-sr);
+  --color-rarity-ssr: var(--rarity-ssr);
+  --color-rarity-ur: var(--rarity-ur);
+  --color-rarity-sp: var(--rarity-sp);
+}
+
+/* DEFAULT = dark ninja shrine. Light is opt-in. */
+:root {
+  --radius: 0.875rem;
+
+  --background: oklch(0.10 0.012 30);
+  --foreground: oklch(0.96 0.012 75);
+  --card: oklch(0.14 0.014 30);
+  --card-foreground: oklch(0.96 0.012 75);
+  --popover: oklch(0.12 0.012 30);
+  --popover-foreground: oklch(0.96 0.012 75);
+
+  /* ninja orange-red */
+  --primary: oklch(0.68 0.22 35);
+  --primary-foreground: oklch(0.10 0.012 30);
+  --secondary: oklch(0.20 0.014 30);
+  --secondary-foreground: oklch(0.96 0.012 75);
+  --muted: oklch(0.18 0.012 30);
+  --muted-foreground: oklch(0.72 0.014 70);
+  --accent: oklch(0.30 0.08 35);
+  --accent-foreground: oklch(0.96 0.012 75);
+  --destructive: oklch(0.65 0.23 28);
+  --destructive-foreground: oklch(0.10 0.012 30);
+  --border: oklch(0.24 0.014 30);
+  --input: oklch(0.20 0.014 30);
+  --ring: oklch(0.68 0.22 35);
+
+  --rarity-c: oklch(0.68 0.02 250);
+  --rarity-r: oklch(0.72 0.18 235);
+  --rarity-sr: oklch(0.74 0.2 290);
+  --rarity-ssr: oklch(0.82 0.18 75);
+  --rarity-ur: oklch(0.72 0.24 27);
+  --rarity-sp: oklch(0.78 0.2 160);
+}
+
+.light {
+  --background: oklch(0.97 0.012 75);
+  --foreground: oklch(0.18 0.015 30);
+  --card: oklch(0.99 0.008 75);
+  --card-foreground: oklch(0.18 0.015 30);
+  --popover: oklch(0.99 0.008 75);
+  --popover-foreground: oklch(0.18 0.015 30);
+  --primary: oklch(0.58 0.22 32);
+  --primary-foreground: oklch(0.98 0.005 75);
+  --secondary: oklch(0.92 0.018 70);
+  --secondary-foreground: oklch(0.2 0.02 30);
+  --muted: oklch(0.92 0.014 70);
+  --muted-foreground: oklch(0.45 0.02 30);
+  --accent: oklch(0.88 0.04 60);
+  --accent-foreground: oklch(0.2 0.02 30);
+  --border: oklch(0.85 0.02 60);
+  --input: oklch(0.88 0.018 60);
+  --ring: oklch(0.58 0.22 32);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    font-family: var(--font-sans);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+/* === Smooth tech buttons === */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.7rem 1.4rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary-foreground);
+  background-image: linear-gradient(135deg, oklch(0.72 0.22 38), oklch(0.6 0.24 28));
+  box-shadow:
+    0 4px 14px -4px oklch(0.6 0.24 28 / 0.55),
+    inset 0 1px 0 oklch(1 0 0 / 0.18);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 8px 22px -6px oklch(0.6 0.24 28 / 0.7),
+    inset 0 1px 0 oklch(1 0 0 / 0.22);
+  filter: brightness(1.06);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: oklch(1 0 0 / 0.04);
+  border: 1px solid var(--color-border);
+  color: var(--color-foreground);
+  backdrop-filter: blur(8px);
+  transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+}
+.btn-ghost:hover {
+  border-color: var(--color-primary);
+  background: oklch(0.68 0.22 35 / 0.08);
+  transform: translateY(-1px);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 9999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--color-border);
+  background: oklch(1 0 0 / 0.03);
+  transition: all 0.18s ease;
+}
+.chip:hover { border-color: var(--color-primary); }
+.chip-active {
+  background-image: linear-gradient(135deg, oklch(0.72 0.22 38), oklch(0.6 0.24 28));
+  border-color: transparent;
+  color: var(--color-primary-foreground);
+}
+
+/* === Premium rarity frame for CR (subtle prismatic border) === */
+.rarity-frame-cr {
+  box-shadow:
+    0 0 0 1px oklch(0.85 0.12 75 / 0.55),
+    0 6px 28px -14px oklch(0.78 0.18 45 / 0.55),
+    0 6px 28px -14px oklch(0.7 0.22 310 / 0.45);
+}
+
+/* === Holographic sweep on hover (very subtle, collector style) === */
+.holo-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    oklch(1 0 0 / 0.10) 45%,
+    oklch(0.85 0.12 75 / 0.10) 50%,
+    oklch(1 0 0 / 0.10) 55%,
+    transparent 70%
+  );
+  mix-blend-mode: overlay;
+}
+.group:hover .holo-overlay { opacity: 1; }
+
+
+.kanji-stamp {
+  font-family: var(--font-display);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  padding: 0.1em 0.45em;
+  display: inline-block;
+  transform: rotate(-4deg);
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  border-radius: 0.25rem;
+}
+
+.bg-paper {
+  background-image:
+    radial-gradient(at 20% 10%, oklch(0.68 0.22 35 / 0.10), transparent 50%),
+    radial-gradient(at 80% 90%, oklch(0.6 0.24 28 / 0.08), transparent 50%);
+}
